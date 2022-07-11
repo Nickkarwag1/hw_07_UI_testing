@@ -1,5 +1,5 @@
 import { By, until, WebElement } from "selenium-webdriver";
-import { driver } from "../constants/webdriver";
+import { driver } from "../config/webdriver";
 
 async function clickCatalog(selector: string) {
   const elementCatalog: WebElement = await driver.findElement(By.css(selector));

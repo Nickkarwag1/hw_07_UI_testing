@@ -1,4 +1,4 @@
-import { driver } from "../constants/webdriver";
+import { driver } from "../config/webdriver";
 import { BASE_URL } from "../constants/url";
 import { expect } from "chai";
 import { TITLES } from "../constants/titles";
