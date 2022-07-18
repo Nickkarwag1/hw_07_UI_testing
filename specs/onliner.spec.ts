@@ -18,14 +18,22 @@ import {
 } from "../pages/catalog";
 
 describe("Onliner tests", async () => {
-  before("Catalog page should be opened", async () => {
+  before(async () => {
     await driver.manage().window().maximize();
     await driver.get(BASE_URL);
+  });
 
-    await clickCatalog(SELECTORS_HOME_PAGE.CATALOG);
+  it("Catalog page should be opened", async () => {
+    try {
+      await clickCatalog(SELECTORS_HOME_PAGE.CATALOG);
 
-    const catalogTitle = await driver.getTitle();
-    expect(catalogTitle).to.eql(TITLES.CATALOG);
+      const catalogTitle = await driver.getTitle();
+      expect(catalogTitle).to.eql(TITLES.CATALOG);
+
+      await driver.getWindowHandle();
+    } catch (err: any) {
+      console.log(err.message);
+    }
   });
 
   it("Tablets page should be opened", async () => {
